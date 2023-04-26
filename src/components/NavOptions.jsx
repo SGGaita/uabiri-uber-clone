@@ -1,6 +1,6 @@
 import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import React from 'react'
-import { COLORS, SIZES, FONTS, icons } from '../constants'
+import { COLORS, SIZES, FONTS, icons, images } from '../constants'
 //import { } from
 
 
@@ -11,12 +11,7 @@ const data = [
         image: "https://links.papareact.com/3pn",
         screen: "MapScreen"
     },
-    {
-        id: "456",
-        title: "Order food",
-        image: "https://links.papareact.com/28w",
-        screen: "EatsScreen"
-    }
+    
 ]
 
 export const NavOptions = ({onPress}) => {
@@ -44,7 +39,7 @@ export const NavOptions = ({onPress}) => {
                     <View>
                         <Image
                             style={{ width: 120, height: 120 }} resizeMode='contain'
-                            source={{ uri: item.image }}
+                            source={images.van}
                         />
                         <Text style={styles.title}>{item.title}</Text>
                         
