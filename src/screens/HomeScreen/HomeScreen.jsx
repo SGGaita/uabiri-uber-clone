@@ -4,9 +4,9 @@ import { COLORS, images, SIZES } from '../../constants'
 import { NavOptions } from '../../components'
 import routes from '../../constants/routes'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import Config from "react-native-config";
+import {GOOGLE_MAPS_APIKEY} from '@env'
 import { useDispatch } from 'react-redux'
-import navSlice, { setOrigin, setDestination } from '../../redux/navSlice'
+import { setOrigin, setDestination } from '../../redux/navSlice'
 
 
 export const HomeScreen = ({ navigation }) => {
@@ -48,7 +48,7 @@ export const HomeScreen = ({ navigation }) => {
           fetchDetails={true}
           returnKeyType={"search"}
           query={{
-            key: 'AIzaSyCvRUxccE0-X4MxmxnSF0xcAwvyhbCUJdM',
+            key: GOOGLE_MAPS_APIKEY,
             language: 'en'
           }}
           styles={{
