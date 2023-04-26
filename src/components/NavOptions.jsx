@@ -19,7 +19,7 @@ const data = [
     }
 ]
 
-export const NavOptions = ({navigation}) => {
+export const NavOptions = ({onPress}) => {
     return (
         <FlatList
             data={data}
@@ -39,7 +39,7 @@ export const NavOptions = ({navigation}) => {
 
                     }}
 
-                    onPress={() => navigation.navigate('Map')}
+                    onPress={onPress}
                 >
                     <View>
                         <Image

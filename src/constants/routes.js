@@ -1,11 +1,7 @@
 export default {
 
-    LOGIN: 'Login',
-    HOME: 'Home',
-    HOME_TAB: 'Home Tab',
-    PROFILE_TAB: 'Profile',
-    TRANSACTIONS_TAB:'Transaction',
-    PAYMENT_TAB:'Payment',
-    DOCUMENTS_TAB:'Documents'
+    LOGIN_SCREEN: 'LoginScreen',
+    HOME_SCREEN: 'HomeScreen',
+    MAP_SCREEN: 'MapScreen'
     
 }
