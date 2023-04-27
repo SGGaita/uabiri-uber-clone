@@ -1,6 +1,8 @@
 import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import { COLORS, SIZES, FONTS, icons, images } from '../constants'
+import { useSelector } from 'react-redux'
+import { selectOrigin } from '../redux/navSlice'
 //import { } from
 
 
@@ -15,6 +17,7 @@ const data = [
 ]
 
 export const NavOptions = ({onPress}) => {
+    const origin = useSelector(selectOrigin)
     return (
         <FlatList
             data={data}
@@ -33,10 +36,11 @@ export const NavOptions = ({onPress}) => {
                         width: 170
 
                     }}
+                    disabled={!origin}
 
                     onPress={onPress}
                 >
-                    <View>
+                    <View style={{opacity: !origin ? 0.5 : 1,}}>
                         <Image
                             style={{ width: 120, height: 120 }} resizeMode='contain'
                             source={images.van}
