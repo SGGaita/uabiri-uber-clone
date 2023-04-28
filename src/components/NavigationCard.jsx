@@ -6,6 +6,7 @@ import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch } from 'react-redux'
 import { setDestination } from '../redux/navSlice'
 import routes from '../constants/routes'
+import { NavFavorites } from './NavFavorites'
 
 export const NavigationCard = ({navigation}) => {
     const dispatch = useDispatch()
@@ -43,6 +44,7 @@ export const NavigationCard = ({navigation}) => {
                         styles={styles}
                     />
                 </View>
+                <NavFavorites/>
             </View>
 
         </SafeAreaView>

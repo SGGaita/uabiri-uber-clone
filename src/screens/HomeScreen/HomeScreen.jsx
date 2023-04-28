@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
 import React from 'react'
 import { COLORS, images, SIZES } from '../../constants'
-import { NavOptions } from '../../components'
+import { NavFavorites, NavOptions } from '../../components'
 import routes from '../../constants/routes'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from '@env'
@@ -76,7 +76,8 @@ export const HomeScreen = ({ navigation }) => {
             },
           }}
         />
-        <NavOptions onPress={() => navigation.navigate(routes.MAP_SCREEN)} />
+       <NavOptions onPress={() => navigation.navigate(routes.MAP_SCREEN)} /> 
+        <NavFavorites/>
       </View>
     </SafeAreaView>
   )
