@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native'
+import { KeyboardAvoidingView,Platform } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -20,6 +20,9 @@ const App = () => {
 
                 <NavigationContainer>
                     <SafeAreaProvider>
+                        <KeyboardAvoidingView 
+                        behavior={Platform.OS === "ios" ? "padding" : "height"}
+                        style={{flex:1}}>
                         <Stack.Navigator
                         initialRouteName={routes.HOME_SCREEN}
                         >
@@ -36,7 +39,8 @@ const App = () => {
                                     headerShown: false,
                                 }} />
                         </Stack.Navigator>
-                    </SafeAreaProvider>
+                        </KeyboardAvoidingView>
+                      </SafeAreaProvider>
                 </NavigationContainer>
 
             </Provider>
