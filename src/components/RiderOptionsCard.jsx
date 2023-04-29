@@ -98,7 +98,6 @@ useEffect(()=>{
         style={{
           backgroundColor:COLORS.black, 
           paddingVertical:SIZES.padding * 1.8,
-           margin:SIZES.padding * 1,
            opacity: !selected ? 0.5 : 1
            }}>
           <Text style={{textAlign:'center',color:COLORS.white, ...FONTS.h3}}>Choose {selected?.title}</Text>
