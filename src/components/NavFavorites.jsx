@@ -1,6 +1,8 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
 import React from 'react'
 import { COLORS, SIZES, icons } from '../constants'
+import { useDispatch, useSelector } from 'react-redux'
+import { setOrigin, setDestination, selectOrigin } from '../redux/navSlice'
 
 const data = [
     {
@@ -18,6 +20,8 @@ const data = [
 ]
 
 export const NavFavorites = () => {
+    const dispatch = useDispatch()
+    const origin = useSelector(selectOrigin)
     return (
         <FlatList
             data={data}
@@ -27,9 +31,11 @@ export const NavFavorites = () => {
                     style={{ backgroundColor: COLORS.gray, height: 0.5 }}>
 
                 </View>
-    )}
+            )}
             renderItem={({ item: { icon, location, destination } }) => (
-                <TouchableOpacity style={{ padding: SIZES.padding * 2, flexDirection: 'row', alignItems: "center", }}>
+                <TouchableOpacity
+
+                    style={{ padding: SIZES.padding * 2, flexDirection: 'row', alignItems: "center", }}>
                     <View style={{
 
                         backgroundColor: COLORS.gray,

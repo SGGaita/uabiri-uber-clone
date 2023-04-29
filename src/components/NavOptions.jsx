@@ -50,8 +50,8 @@ export const NavOptions = ({onPress}) => {
                         <Image
                             style={{
                                 marginTop:SIZES.padding * 2,
-                                width: 30,
-                                height:30,
+                                width: 20,
+                                height:20,
                                 //tintColor: COLORS.white,
                                 //backgroundColor:COLORS.black,
                                 paddingLeft:10,

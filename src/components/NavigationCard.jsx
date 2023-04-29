@@ -1,18 +1,19 @@
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { COLORS, FONTS, SIZES } from '../constants'
+import { COLORS, FONTS, SIZES, icons } from '../constants'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch } from 'react-redux'
 import { setDestination } from '../redux/navSlice'
 import routes from '../constants/routes'
 import { NavFavorites } from './NavFavorites'
+import { Greetings } from './Greetings'
 
-export const NavigationCard = ({navigation}) => {
+export const NavigationCard = ({ navigation }) => {
     const dispatch = useDispatch()
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-            <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 2, ...FONTS.h2 }}>Good Morning, Steve</Text>
+           <Greetings/>
             <View style={{ borderTopColor: COLORS.lightGray, borderTopWidth: 2, flexShrink: 1 }}>
                 <View>
                     <GooglePlacesAutocomplete
@@ -32,8 +33,8 @@ export const NavigationCard = ({navigation}) => {
                                     location: details.geometry.location,
                                     description: data.description
                                 }))
-                                navigation.navigate(routes.RIDER_OPTIONS_CARD)
-                            
+                            navigation.navigate(routes.RIDER_OPTIONS_CARD)
+
                         }}
                         fetchDetails={true}
                         returnKeyType={"search"}
@@ -44,7 +45,46 @@ export const NavigationCard = ({navigation}) => {
                         styles={styles}
                     />
                 </View>
-                <NavFavorites/>
+                <NavFavorites />
+            </View>
+            <View style={{ flexDirection: 'row', 
+            justifyContent: 'center',
+             paddingVertical:SIZES.padding * 2, 
+             marginTop:'auto',
+             borderColor:COLORS.lightGray,
+             borderTopWidth:1 }}>
+                <TouchableOpacity
+                onPress={() => {
+                   
+                    navigation.navigate(routes.RIDER_OPTIONS_CARD)
+
+                }}
+                    style={
+                        {
+                            flexDirection: 'row',
+                            width: 100,
+                            borderRadius: 30,
+                            paddingHorizontal: SIZES.padding * 2.1,
+                            paddingVertical: SIZES.padding * 1,
+                            backgroundColor: COLORS.black,
+                            alignContent: 'center',
+                            justifyContent: 'space-between'
+                        }}
+                >
+
+                    <Image
+                        source={icons.busFront}
+                        resizeMode='contain'
+                        style={{
+                            width: 20,
+                            height: 20,
+                            tintColor: COLORS.white,
+
+                        }}
+                    />
+
+                    <Text style={{ color: COLORS.white, textAlign: 'center' }}>Rides</Text>
+                </TouchableOpacity>
             </View>
 
         </SafeAreaView>
