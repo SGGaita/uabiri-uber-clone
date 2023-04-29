@@ -3,17 +3,19 @@ import React from 'react'
 import { COLORS, FONTS, SIZES, icons } from '../constants'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
-import { useDispatch } from 'react-redux'
-import { setDestination } from '../redux/navSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectDestination, setDestination } from '../redux/navSlice'
 import routes from '../constants/routes'
 import { NavFavorites } from './NavFavorites'
 import { Greetings } from './Greetings'
 
 export const NavigationCard = ({ navigation }) => {
     const dispatch = useDispatch()
+    const destination = useSelector(selectDestination)
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-           <Greetings/>
+            <Greetings />
             <View style={{ borderTopColor: COLORS.lightGray, borderTopWidth: 2, flexShrink: 1 }}>
                 <View>
                     <GooglePlacesAutocomplete
@@ -47,18 +49,21 @@ export const NavigationCard = ({ navigation }) => {
                 </View>
                 <NavFavorites />
             </View>
-            <View style={{ flexDirection: 'row', 
-            justifyContent: 'center',
-             paddingVertical:SIZES.padding * 2, 
-             marginTop:'auto',
-             borderColor:COLORS.lightGray,
-             borderTopWidth:1 }}>
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                paddingVertical: SIZES.padding * 2,
+                marginTop: 'auto',
+                borderColor: COLORS.lightGray,
+                borderTopWidth: 1
+            }}>
                 <TouchableOpacity
-                onPress={() => {
-                   
-                    navigation.navigate(routes.RIDER_OPTIONS_CARD)
+                disabled={!destination}
+                    onPress={() => {
 
-                }}
+                        navigation.navigate(routes.RIDER_OPTIONS_CARD)
+
+                    }}
                     style={
                         {
                             flexDirection: 'row',
@@ -68,7 +73,8 @@ export const NavigationCard = ({ navigation }) => {
                             paddingVertical: SIZES.padding * 1,
                             backgroundColor: COLORS.black,
                             alignContent: 'center',
-                            justifyContent: 'space-between'
+                            justifyContent: 'space-between',
+                            opacity: !destination ? 0.5 : 1,
                         }}
                 >
 
