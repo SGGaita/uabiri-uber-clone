@@ -2,6 +2,8 @@ import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, FlatList
 import React, { useState, useEffect } from 'react'
 import { COLORS, SIZES, FONTS, icons, images } from '../constants'
 import routes from '../constants/routes'
+import { useSelector } from 'react-redux'
+import { selectTravelTimeInformation } from '../redux/navSlice'
 
 const data = [
   {
@@ -27,11 +29,12 @@ const data = [
 
 export const RiderOptionsCard = ({ navigation }) => {
   const [selected, setSelected] = useState(null)
+  const travelTimeInformation = useSelector(selectTravelTimeInformation)
 
 
 useEffect(()=>{
 
-  console.log(selected)
+ 
 
 },[selected])
 
@@ -49,7 +52,7 @@ useEffect(()=>{
         >
           <Image source={icons.arrowLeft} resizeMode='contain' style={{ width: 15, height: 15 }} />
         </TouchableOpacity>
-        <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 3, ...FONTS.h2 }}>Select a Ride</Text>
+        <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 3, ...FONTS.h2 }}>Select a Ride - {travelTimeInformation?.distance.text}</Text>
       </View>
 
       <FlatList
@@ -81,9 +84,9 @@ useEffect(()=>{
               source={images[image]}
             />
 
-            <View style={{flex:1,marginLeft:60}}>
+            <View style={{flex:1,marginLeft:40}}>
               <Text style={{ ...FONTS.h2,color: COLORS.black }}>{title}</Text>
-              <Text style={{ color: COLORS.black }}>Travel time...</Text>
+              <Text style={{ color: COLORS.black }}>{travelTimeInformation?.duration.text} Travel time</Text>
             </View>
 
             <Text style={{ ...FONTS.h2,color: COLORS.black }}>Kes 70</Text>
