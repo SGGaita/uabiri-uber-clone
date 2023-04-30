@@ -19,8 +19,9 @@ export const HomeScreen = ({ navigation }) => {
           style={{
             width: 70,
             height: 70,
-            resizeMode: "contain",
+           
           }}
+          resizeMode="contain"
           source={images.logo}
         />
 

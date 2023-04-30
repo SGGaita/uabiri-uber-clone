@@ -52,7 +52,7 @@ useEffect(()=>{
         >
           <Image source={icons.arrowLeft} resizeMode='contain' style={{ width: 15, height: 15 }} />
         </TouchableOpacity>
-        <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 3, ...FONTS.h2 }}>Select a Ride - {travelTimeInformation?.distance.text}</Text>
+        <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 3, ...FONTS.h2 }}>Select a Ride - {travelTimeInformation?.distance?.text}</Text>
       </View>
 
       <FlatList
@@ -86,7 +86,7 @@ useEffect(()=>{
 
             <View style={{flex:1,marginLeft:40}}>
               <Text style={{ ...FONTS.h2,color: COLORS.black }}>{title}</Text>
-              <Text style={{ color: COLORS.black }}>{travelTimeInformation?.duration.text} Travel time</Text>
+              <Text style={{ color: COLORS.black }}>{travelTimeInformation?.duration?.text} Travel time</Text>
             </View>
 
             <Text style={{ ...FONTS.h2,color: COLORS.black }}>Kes 70</Text>

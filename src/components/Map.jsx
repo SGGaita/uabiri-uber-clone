@@ -13,6 +13,13 @@ export const Map = () => {
     const [directionsAdded, setDirectionsAdded] = useState(false);
     const dispatch = useDispatch()
 
+    const handleDirectionError = (error) => {
+        if (error && error.message === 'ZERO_RESULTS') {
+            // Display a message to the user indicating that no route was found
+            console.log('No route found between the specified locations.');
+        }
+    };
+
 
     useEffect(() => {
         if (!origin || !destination || !directionsAdded) return;
@@ -34,8 +41,6 @@ export const Map = () => {
             ).then((res) => res.json())
                 .then(data => {
                     dispatch(setTravelTimeInformation(data.rows[0].elements[0]))
-
-                    console.log('Distance infor', data)
                 })
         }
 
@@ -66,6 +71,9 @@ export const Map = () => {
                     strokeWidth={5}
                     strokeColor='black'
                     identifier='directions'
+                    onError={(errorMessage)=>{
+                        console.log('This error message', errorMessage)
+                    }}
                     onReady={() => {
                         setDirectionsAdded(true);
                     }}
