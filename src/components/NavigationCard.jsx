@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { COLORS, FONTS, SIZES, icons } from '../constants'
+import { COLORS, FONTS, SIZES, icons ,routes} from '../constants'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectDestination, setDestination } from '../redux/navSlice'
-import routes from '../constants/routes'
 import { NavFavorites } from './NavFavorites'
 import { Greetings } from './Greetings'
 
@@ -71,7 +70,7 @@ export const NavigationCard = ({ navigation }) => {
                             borderRadius: 30,
                             paddingHorizontal: SIZES.padding * 2.1,
                             paddingVertical: SIZES.padding * 1,
-                            backgroundColor: COLORS.black,
+                            backgroundColor: COLORS.turquoise,
                             alignContent: 'center',
                             justifyContent: 'space-between',
                             opacity: !destination ? 0.5 : 1,
@@ -123,12 +122,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: SIZES.padding * 1.5,
     },
     row: {
-        //backgroundColor: '#ccc',
+        backgroundColor: 'white',
         padding: 13,
         height: 44,
         flexDirection: 'row',
     },
     description: {
-        color: COLORS.darknavy
+        color: COLORS.black
     },
 })

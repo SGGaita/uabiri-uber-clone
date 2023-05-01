@@ -1,12 +1,11 @@
 import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
 import React from 'react'
-import { COLORS, images, SIZES } from '../../constants'
-import { NavFavorites, NavOptions } from '../../components'
-import routes from '../../constants/routes'
+import { COLORS, images, SIZES, routes } from '../constants'
+import { NavFavorites, NavOptions } from '../components'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from '@env'
 import { useDispatch } from 'react-redux'
-import { setOrigin, setDestination } from '../../redux/navSlice'
+import { setOrigin, setDestination } from '../redux/navSlice'
 
 
 export const HomeScreen = ({ navigation }) => {

@@ -1,13 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export const RouteSelection = () => {
+export const SettingScreen = () => {
   return (
     <View>
-      <Text>RouteSelection</Text>
+      <Text>Settings</Text>
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({})

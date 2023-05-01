@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { store } from './src/redux/store';
-import { HomeScreen,MapScreen } from './src/screens';
-import routes from './src/constants/routes';
+import { HomeScreen,LoginScreen,MapScreen, OtpScreen, RegistrationScreen, StartScreen, UserRegistrationInfoScreen } from './src/screens';
+import {routes} from './src/constants/';
 
 
 
@@ -24,8 +24,38 @@ const App = () => {
                         behavior={Platform.OS === "ios" ? "padding" : "height"}
                         style={{flex:1}}>
                         <Stack.Navigator
-                        initialRouteName={routes.HOME_SCREEN}
+                        initialRouteName={routes.START_SCREEN}
                         >
+                             <Stack.Screen
+                                name={routes.START_SCREEN}
+                                component={StartScreen}
+                                options={{
+                                    headerShown: false,
+                                }} />
+                            <Stack.Screen
+                                name={routes.LOGIN_SCREEN}
+                                component={LoginScreen}
+                                options={{
+                                    headerShown: false,
+                                }} />
+                                <Stack.Screen
+                                name={routes.REGISTRATION_SCREEN}
+                                component={RegistrationScreen}
+                                options={{
+                                    headerShown: false,
+                                }} />
+                             <Stack.Screen
+                                name={routes.OTP_SCREEN}
+                                component={OtpScreen}
+                                options={{
+                                    headerShown: false,
+                                }} />
+                                 <Stack.Screen
+                                name={routes.USER_REGISTRATION_SCREEN}
+                                component={UserRegistrationInfoScreen}
+                                options={{
+                                    headerShown: false,
+                                }} />
                             <Stack.Screen
                                 name={routes.HOME_SCREEN}
                                 component={HomeScreen}

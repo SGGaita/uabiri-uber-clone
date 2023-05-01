@@ -3,7 +3,7 @@ import React from 'react'
 import { COLORS, SIZES, FONTS, icons, images } from '../constants'
 import { useSelector } from 'react-redux'
 import { selectOrigin } from '../redux/navSlice'
-//import { } from
+
 
 
 const data = [
@@ -52,7 +52,7 @@ export const NavOptions = ({onPress}) => {
                                 marginTop:SIZES.padding * 2,
                                 width: 20,
                                 height:20,
-                                //tintColor: COLORS.white,
+                                tintColor: COLORS.turquoise,
                                 //backgroundColor:COLORS.black,
                                 paddingLeft:10,
                                 borderRadius:15

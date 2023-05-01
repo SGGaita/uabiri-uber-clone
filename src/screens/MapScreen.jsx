@@ -1,9 +1,8 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
-import { COLORS, SIZES, icons } from '../../constants'
-import { Map } from '../../components'
-import routes from '../../constants/routes';
-import { NavigationCard, RiderOptionsCard } from '../../components'
+import { COLORS, SIZES, icons, routes } from '../constants'
+import { Map } from '../components'
+import { NavigationCard, RiderOptionsCard } from '../components'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export const MapScreen = ({navigation}) => {
@@ -11,11 +10,28 @@ export const MapScreen = ({navigation}) => {
 
     return (
         <View style={{ flex: 1 }}>
-            <TouchableOpacity 
-            onPress={()=>(navigation.navigate(routes.HOME_SCREEN))}
-            style={{ backgroundColor: COLORS.lightGray, zIndex: 50, position: 'absolute', top: 40, left: 30, padding: SIZES.padding * 1, borderRadius: 20 }}>
-                <Image source={icons.arrowLeft} resizeMode='contain' style={{ width: 20, height: 20, tintColor:COLORS.black }} />
-            </TouchableOpacity>
+           <TouchableOpacity 
+    onPress={()=>(navigation.navigate(routes.HOME_SCREEN))}
+    style={{ 
+        backgroundColor: COLORS.lightGray, 
+        zIndex: 50, 
+        position: 'absolute', 
+        top: 20, 
+        left: 20, 
+        padding: SIZES.padding * 1, 
+        borderRadius: 20, 
+        shadowColor: COLORS.black, 
+        shadowOffset: { width: 0, height: 2 }, 
+        shadowOpacity: 0.5, 
+        shadowRadius: 3.84 
+    }}>
+    <Image 
+        source={icons.menu} 
+        resizeMode='contain' 
+        style={{ width: 15, height: 15, tintColor:COLORS.black }} 
+    />
+</TouchableOpacity>
+
 
             <View style={{ flex: 1, backgroundColor: COLORS.lightGray }}>
                 <Map />

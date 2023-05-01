@@ -4,16 +4,14 @@ const { width, height } = Dimensions.get("window");
 
 export const COLORS = {
     // base colors
-    lime: "#8FE890",
-    limeDark: "#5FB75F",
-    lightblue: "#52A19E",
-    navy: '#293A4F',
-    darknavy: '#243144',
+   
+    turquoise: '#1e7c8d',
+    
 
     black: "#1E1F20",
     white: "#FFFFFF",
 
-    lightGray: "#FCFBFC",
+    lightGray: "#f2f2f2",
     gray: "#C1C3C5",
     darkgray: "#666666",
     
@@ -24,15 +22,16 @@ export const COLORS = {
 export const SIZES = {
     // global sizes
     base: 8,
-    font: 14,
+    font: 15,
     radius: 30,
     padding: 10,
     padding2: 12,
+    button_padding:20,
 
     // font sizes
     largeTitle: 50,
-    h1: 30,
-    h2: 22,
+    h1: 25,
+    h2: 20,
     h3: 20,
     h4: 18,
     body1: 30,

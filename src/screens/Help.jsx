@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export const Payments = () => {
+export const HelpScreen = () => {
   return (
     <View>
-      <Text>Payments</Text>
+      <Text>Help</Text>
     </View>
   )
 }

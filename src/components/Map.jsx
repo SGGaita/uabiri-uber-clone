@@ -5,6 +5,8 @@ import MapViewDirections from 'react-native-maps-directions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDestination, selectOrigin, setTravelTimeInformation } from '../redux/navSlice';
 import { GOOGLE_MAPS_APIKEY } from '@env'
+import { COLORS } from '../constants';
+import { darkStyle } from '../data/mapTheme';
 
 export const Map = () => {
     const origin = useSelector(selectOrigin)
@@ -55,6 +57,7 @@ export const Map = () => {
             ref={mapRef}
             style={{ flex: 1 }}
             mapType="standard"
+            //customMapStyle={darkStyle}
             initialRegion={{
                 latitude: origin.location.lat,
                 longitude: origin.location.lng,
@@ -69,7 +72,7 @@ export const Map = () => {
                     destination={destination.description}
                     apikey={GOOGLE_MAPS_APIKEY}
                     strokeWidth={5}
-                    strokeColor='black'
+                    strokeColor="#074851"
                     identifier='directions'
                     onError={(errorMessage)=>{
                         console.log('This error message', errorMessage)

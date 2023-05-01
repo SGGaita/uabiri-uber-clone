@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { COLORS, SIZES, FONTS, icons, images } from '../constants'
-import routes from '../constants/routes'
+import { COLORS, SIZES, FONTS, icons, images,routes } from '../constants'
 import { useSelector } from 'react-redux'
 import { selectTravelTimeInformation } from '../redux/navSlice'
 
@@ -99,7 +98,7 @@ useEffect(()=>{
         <TouchableOpacity 
         disabled={!selected} 
         style={{
-          backgroundColor:COLORS.black, 
+          backgroundColor:COLORS.turquoise, 
           paddingVertical:SIZES.padding * 1.8,
            opacity: !selected ? 0.5 : 1
            }}>
