@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView,Platform } from 'react-native'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Provider } from 'react-redux';
@@ -8,6 +8,7 @@ import { store } from './src/redux/store';
 import {LoginScreen, OtpScreen, RegistrationScreen, StartScreen, UserRegistrationInfoScreen } from './src/screens';
 import {routes} from './src/constants/';
 import { MainNavigation } from './src/navigation/mainNavigation';
+import SplashScreen from 'react-native-splash-screen'
 
 
 
@@ -15,6 +16,12 @@ import { MainNavigation } from './src/navigation/mainNavigation';
 const Drawer = createDrawerNavigator();
 
 const App = () => {
+    
+    useEffect(() => {
+        SplashScreen.hide();
+      }, []);
+
+
     {
         return (
             <Provider store={store}>
