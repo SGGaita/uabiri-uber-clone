@@ -5,7 +5,8 @@ export const routes = {
     REGISTRATION_SCREEN:'RegScreen',
     OTP_SCREEN:'OTPSCREEN',
     USER_REGISTRATION_SCREEN:'UserRegInfoScreen',
-    HOME_SCREEN: 'HomeScreen',
+    HOME_SCREEN: 'Home',
+    HOME_DRAWER: 'Home Drawer',
     MAP_SCREEN: 'MapScreen',
     NAVIGATION_CARD: 'NavigateCard',
     RIDER_OPTIONS_CARD: 'RiderOptionsCard'

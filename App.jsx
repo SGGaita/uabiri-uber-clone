@@ -1,17 +1,18 @@
 import { KeyboardAvoidingView,Platform } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { store } from './src/redux/store';
-import { HomeScreen,LoginScreen,MapScreen, OtpScreen, RegistrationScreen, StartScreen, UserRegistrationInfoScreen } from './src/screens';
+import {LoginScreen, OtpScreen, RegistrationScreen, StartScreen, UserRegistrationInfoScreen } from './src/screens';
 import {routes} from './src/constants/';
+import { MainNavigation } from './src/navigation/mainNavigation';
 
 
 
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
     {
@@ -23,52 +24,47 @@ const App = () => {
                         <KeyboardAvoidingView 
                         behavior={Platform.OS === "ios" ? "padding" : "height"}
                         style={{flex:1}}>
-                        <Stack.Navigator
-                        initialRouteName={routes.START_SCREEN}
+                        <Drawer.Navigator
+                        initialRouteName={routes.HOME_SCREEN}
                         >
-                             <Stack.Screen
+                             <Drawer.Screen
                                 name={routes.START_SCREEN}
                                 component={StartScreen}
                                 options={{
                                     headerShown: false,
                                 }} />
-                            <Stack.Screen
+                            <Drawer.Screen
                                 name={routes.LOGIN_SCREEN}
                                 component={LoginScreen}
                                 options={{
                                     headerShown: false,
                                 }} />
-                                <Stack.Screen
+                                <Drawer.Screen
                                 name={routes.REGISTRATION_SCREEN}
                                 component={RegistrationScreen}
                                 options={{
                                     headerShown: false,
                                 }} />
-                             <Stack.Screen
+                             <Drawer.Screen
                                 name={routes.OTP_SCREEN}
                                 component={OtpScreen}
                                 options={{
                                     headerShown: false,
                                 }} />
-                                 <Stack.Screen
+                                 <Drawer.Screen
                                 name={routes.USER_REGISTRATION_SCREEN}
                                 component={UserRegistrationInfoScreen}
                                 options={{
                                     headerShown: false,
                                 }} />
-                            <Stack.Screen
+                            <Drawer.Screen
                                 name={routes.HOME_SCREEN}
-                                component={HomeScreen}
+                                component={MainNavigation}
                                 options={{
                                     headerShown: false,
                                 }} />
-                            <Stack.Screen
-                                name={routes.MAP_SCREEN}
-                                component={MapScreen}
-                                options={{
-                                    headerShown: false,
-                                }} />
-                        </Stack.Navigator>
+                            
+                        </Drawer.Navigator>
                         </KeyboardAvoidingView>
                       </SafeAreaProvider>
                 </NavigationContainer>

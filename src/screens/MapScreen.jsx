@@ -13,17 +13,14 @@ export const MapScreen = ({navigation}) => {
            <TouchableOpacity 
     onPress={()=>(navigation.navigate(routes.HOME_SCREEN))}
     style={{ 
-        backgroundColor: COLORS.lightGray, 
+        backgroundColor: COLORS.white, 
         zIndex: 50, 
         position: 'absolute', 
         top: 20, 
         left: 20, 
         padding: SIZES.padding * 1, 
         borderRadius: 20, 
-        shadowColor: COLORS.black, 
-        shadowOffset: { width: 0, height: 2 }, 
-        shadowOpacity: 0.5, 
-        shadowRadius: 3.84 
+       elevation:4
     }}>
     <Image 
         source={icons.menu} 

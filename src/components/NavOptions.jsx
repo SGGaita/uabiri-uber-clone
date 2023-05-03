@@ -52,7 +52,7 @@ export const NavOptions = ({onPress}) => {
                                 marginTop:SIZES.padding * 2,
                                 width: 20,
                                 height:20,
-                                tintColor: COLORS.turquoise,
+                                tintColor: COLORS.black,
                                 //backgroundColor:COLORS.black,
                                 paddingLeft:10,
                                 borderRadius:15

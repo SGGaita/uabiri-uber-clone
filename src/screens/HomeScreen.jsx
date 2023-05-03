@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { COLORS, images, SIZES, routes } from '../constants'
+import { COLORS, icons, SIZES, routes, images } from '../constants'
 import { NavFavorites, NavOptions } from '../components'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import {GOOGLE_MAPS_APIKEY} from '@env'
+import { GOOGLE_MAPS_APIKEY } from '@env'
 import { useDispatch } from 'react-redux'
 import { setOrigin, setDestination } from '../redux/navSlice'
 
@@ -12,17 +12,25 @@ export const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <View style={styles.container}>
-        <Image
+    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
+      <View style={styles.header}>
+        <TouchableOpacity
+          onPress={() => navigation.toggleDrawer()}
           style={{
-            width: 70,
-            height: 70,
-           
-          }}
-          resizeMode="contain"
-          source={images.logo}
-        />
+            zIndex: 50,
+            height: 30,
+            width: 30,
+            padding: SIZES.padding * 3,
+            marginBottom: 10,
+            alignItems: 'center',
+            justifyContent: 'center'
+
+          }}>
+          <Image source={icons.menu} resizeMode='contain' style={{ width: 20, height: 20, tintColor: COLORS.white }} />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.container}>
+
 
         <GooglePlacesAutocomplete
 
@@ -72,12 +80,12 @@ export const HomeScreen = ({ navigation }) => {
               flexDirection: 'row',
             },
             description: {
-              color: COLORS.darknavy
+              color: COLORS.darkgray
             },
           }}
         />
-       <NavOptions onPress={() => navigation.navigate(routes.MAP_SCREEN)} /> 
-        <NavFavorites/>
+        <NavOptions onPress={() => navigation.navigate(routes.MAP_SCREEN)} />
+        <NavFavorites />
       </View>
     </SafeAreaView>
   )
@@ -86,7 +94,14 @@ export const HomeScreen = ({ navigation }) => {
 
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection:'column',
+    backgroundColor: COLORS.turquoise
+  },
+
+  
   container: {
-    padding: SIZES.padding * 1
+    padding: SIZES.padding * 1,
+
   }
 })

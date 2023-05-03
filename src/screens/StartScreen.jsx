@@ -21,7 +21,7 @@ export const StartScreen = ({ navigation }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     padding: SIZES.button_padding,
-                    backgroundColor: COLORS.turquoise,
+                    backgroundColor: COLORS.black,
                     marginVertical: 15,
                 }}>
                 <Text style={{ fontSize: SIZES.body2 }}>Create Account</Text>

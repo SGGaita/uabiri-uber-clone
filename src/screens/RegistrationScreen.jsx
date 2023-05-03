@@ -97,7 +97,7 @@ export const RegistrationScreen = ({ navigation }) => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         padding: SIZES.button_padding,
-                        backgroundColor: COLORS.turquoise,
+                        backgroundColor: COLORS.black,
                         marginVertical: 20,
                     }}>
                     <Text style={{ fontSize: SIZES.body2 }}>Send OTP</Text>

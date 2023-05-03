@@ -40,16 +40,16 @@ export const NavFavorites = () => {
 
                         backgroundColor: COLORS.gray,
                         padding: SIZES.padding * 1,
-                        borderRadius: 30,
+                        borderRadius: 20,
                         marginRight: 20
                     }}>
                         <Image
                             source={icons[icon]}
                             resizeMode='contain'
                             style={{
-                                width: 30,
-                                height: 30,
-                                tintColor: COLORS.white,
+                                width: 20,
+                                height: 20,
+                                tintColor: COLORS.black,
 
                             }}
                         />

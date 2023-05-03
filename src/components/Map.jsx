@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React, { useEffect, useRef, useState } from 'react'
 import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDestination, selectOrigin, setTravelTimeInformation } from '../redux/navSlice';
 import { GOOGLE_MAPS_APIKEY } from '@env'
-import { COLORS } from '../constants';
+import { COLORS, images } from '../constants';
 import { darkStyle } from '../data/mapTheme';
 
 export const Map = () => {
@@ -57,7 +57,6 @@ export const Map = () => {
             ref={mapRef}
             style={{ flex: 1 }}
             mapType="standard"
-            //customMapStyle={darkStyle}
             initialRegion={{
                 latitude: origin.location.lat,
                 longitude: origin.location.lng,
@@ -74,7 +73,7 @@ export const Map = () => {
                     strokeWidth={5}
                     strokeColor="#074851"
                     identifier='directions'
-                    onError={(errorMessage)=>{
+                    onError={(errorMessage) => {
                         console.log('This error message', errorMessage)
                     }}
                     onReady={() => {
@@ -91,7 +90,12 @@ export const Map = () => {
                     title='Pick up'
                     description={origin.description}
                     identifier='origin'
-                />
+                    
+                    
+                >
+                    <Image source={images.location} resizeMode='contain' style={{ width: 40, height: 40, tintColor:COLORS.black }} />
+
+                </Marker>
             )}
 
             {destination?.location && (
@@ -103,7 +107,12 @@ export const Map = () => {
                     title='drop off'
                     description={destination.description}
                     identifier='destination'
-                />
+                    
+                    >
+                        
+                    <Image source={images.location} resizeMode='contain' style={{ width: 40, height: 40, tintColor:COLORS.black }} />
+
+                </Marker>
             )}
         </MapView>
 
