@@ -5,6 +5,7 @@ export const routes = {
     REGISTRATION_SCREEN:'RegScreen',
     OTP_SCREEN:'OTPSCREEN',
     USER_REGISTRATION_SCREEN:'UserRegInfoScreen',
+    SUCCESS_SCREEN:'SuccessScreen',
     HOME_SCREEN: 'Home',
     HOME_DRAWER: 'Home Drawer',
     MAP_SCREEN: 'MapScreen',

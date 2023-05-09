@@ -21,10 +21,11 @@ export const StartScreen = ({ navigation }) => {
                     alignItems: 'center',
                     justifyContent: 'center',
                     padding: SIZES.button_padding,
-                    backgroundColor: COLORS.black,
+                    backgroundColor: COLORS.green,
                     marginVertical: 15,
+                    borderRadius:35
                 }}>
-                <Text style={{ fontSize: SIZES.body2 }}>Create Account</Text>
+                <Text style={{ color:COLORS.white,fontSize: SIZES.body2 }}>Create Account</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -36,7 +37,7 @@ export const StartScreen = ({ navigation }) => {
                     padding: SIZES.button_padding,
                     backgroundColor: COLORS.white,
                     elevation: 4, // add elevation to create shadow
-                    shadowColor: COLORS.black // add shadow color
+                    borderRadius:35
                 }}>
                 <Text style={{ fontSize: SIZES.body2, color: COLORS.black }}>Login</Text>
             </TouchableOpacity>

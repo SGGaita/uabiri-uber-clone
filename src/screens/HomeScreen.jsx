@@ -96,7 +96,7 @@ export const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection:'column',
-    backgroundColor: COLORS.turquoise
+    backgroundColor: '#085156'
   },
 
   

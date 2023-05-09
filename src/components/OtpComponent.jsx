@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         borderWidth:0.5,
         textAlign: 'center',
-        color: COLORS.turquoise,
+        color: COLORS.green,
         marginHorizontal: 5,
         fontSize: 25
     },

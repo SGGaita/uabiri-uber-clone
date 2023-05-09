@@ -40,8 +40,9 @@ export const OtpScreen = ({ navigation }) => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         padding: SIZES.button_padding,
-                        backgroundColor: COLORS.black,
+                        backgroundColor: COLORS.green,
                         marginVertical: 20,
+                        borderRadius:35
                     }}>
                     <Text style={{ color:COLORS.white, fontSize: SIZES.body2 }}>Verify</Text>
                 </TouchableOpacity>
@@ -49,7 +50,7 @@ export const OtpScreen = ({ navigation }) => {
 
             <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }}>
             <Text style={{ color: COLORS.darkgray, fontSize: SIZES.body2, paddingHorizontal: SIZES.padding * 2, textAlign: 'center' }}>Did you receive any code?</Text>
-                <Text style={{ color: COLORS.turquoise, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Resend new code</Text>
+                <Text style={{ color: COLORS.orange, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Resend new code</Text>
                 
             </View>
 

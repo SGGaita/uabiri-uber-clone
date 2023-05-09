@@ -14,7 +14,7 @@ export const NavigationCard = ({ navigation }) => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-            <Greetings />
+            <Greetings onPress={()=> navigation.navigate(routes.HOME_DRAWER)} />
             <View style={{ borderTopColor: COLORS.lightGray, borderTopWidth: 2, flexShrink: 1 }}>
                 <View>
                     <GooglePlacesAutocomplete
@@ -70,7 +70,7 @@ export const NavigationCard = ({ navigation }) => {
                             borderRadius: 30,
                             paddingHorizontal: SIZES.padding * 2.1,
                             paddingVertical: SIZES.padding * 1,
-                            backgroundColor: COLORS.turquoise,
+                            backgroundColor: COLORS.green,
                             alignContent: 'center',
                             justifyContent: 'space-between',
                             opacity: !destination ? 0.5 : 1,
@@ -83,7 +83,7 @@ export const NavigationCard = ({ navigation }) => {
                         style={{
                             width: 20,
                             height: 20,
-                            tintColor: COLORS.white,
+                            tintColor: COLORS.orange,
 
                         }}
                     />

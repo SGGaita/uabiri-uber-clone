@@ -1,3 +1,4 @@
+export * from './CustomSnackBar'
 export * from './Greetings'
 export * from './Map'
 export * from './NavFavorites'

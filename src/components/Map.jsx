@@ -93,7 +93,7 @@ export const Map = () => {
                     
                     
                 >
-                    <Image source={images.location} resizeMode='contain' style={{ width: 40, height: 40, tintColor:COLORS.black }} />
+                    <Image source={images.location} resizeMode='contain' style={{ width: 30, height: 30,  }} />
 
                 </Marker>
             )}
@@ -110,7 +110,7 @@ export const Map = () => {
                     
                     >
                         
-                    <Image source={images.location} resizeMode='contain' style={{ width: 40, height: 40, tintColor:COLORS.black }} />
+                    <Image source={images.location} resizeMode='contain' style={{ width: 30, height: 30, }} />
 
                 </Marker>
             )}

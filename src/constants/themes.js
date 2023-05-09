@@ -4,9 +4,11 @@ const { width, height } = Dimensions.get("window");
 
 export const COLORS = {
     // base colors
-   
+
     turquoise: '#1e7c8d',
-    
+    green: '#085156',
+
+    orange: '#F7931E',
 
     black: "#1E1F20",
     white: "#FFFFFF",
@@ -14,9 +16,23 @@ export const COLORS = {
     lightGray: "#f2f2f2",
     gray: "#C1C3C5",
     darkgray: "#666666",
-    
+
 
     transparent: "transparent",
+
+//snackbar colors
+red:'#c72c41',
+darkRed:'#801336',
+
+greens:'#0c7040',
+darkGreen:'#004e32',
+
+blue:'#0070e0',
+darkBlue:'#05478a',
+
+oranges:'#ef8d32',
+darkOrange:'#cb4f14',
+
 };
 
 export const SIZES = {
@@ -26,7 +42,7 @@ export const SIZES = {
     radius: 30,
     padding: 10,
     padding2: 12,
-    button_padding:20,
+    button_padding: 20,
 
     // font sizes
     largeTitle: 50,
@@ -60,16 +76,16 @@ export const FONTS = {
 
 export const fontWeights = {
     fn: "normal",
-    fb:"bold",
-    f100:"100",
-    f200:"200",
-    f300:"300",
-    f400:"400",
-    f500:"500",
-    f600:"600",
-    f700:"700",
-    f800:"800",
-    f900:"900"
+    fb: "bold",
+    f100: "100",
+    f200: "200",
+    f300: "300",
+    f400: "400",
+    f500: "500",
+    f600: "600",
+    f700: "700",
+    f800: "800",
+    f900: "900"
 };
 
 const appTheme = { COLORS, SIZES, FONTS };

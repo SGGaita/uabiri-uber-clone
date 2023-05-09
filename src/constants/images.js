@@ -8,5 +8,7 @@ const otp = require('../assets/images/otp.png')
 const corner = require('../assets/images/cornerimage.png')
 const location = require('../assets/images/location.png')
 const avatar = require('../assets/images/avatar.jpg')
+const success = require('../assets/images/success.gif')
+const splatter = require('../assets/images/splatter.png')
 
-export default {avatar,location,corner,logo, van, bus, minibus, stage, signup, otp}
+export default {avatar,location,corner,logo, van, bus, minibus, stage, signup, otp, success,splatter}

@@ -16,7 +16,7 @@ const CustomDrawerContent = (props) => {
         <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1, }}>
 
             {/* Add content here */}
-            <View style={{ paddingLeft: 30, flexDirection: 'row', backgroundColor: COLORS.turquoise, height: 150, marginTop: -4, justifyContent: 'flex-start', alignItems: 'center' }}>
+            <View style={{ paddingLeft: 30, flexDirection: 'row', backgroundColor: COLORS.green, height: 150, marginTop: -4, justifyContent: 'flex-start', alignItems: 'center' }}>
                 <View style={{
                     backgroundColor: COLORS.white, borderRadius: 60, height: 70, width: 70, alignSelf: 'center',
                     padding: SIZES.padding,
@@ -53,7 +53,7 @@ export const MainNavigation = () => {
 
     return (
         <Drawer.Navigator
-
+        drawerWidth="95%"
             drawerContent={props => <CustomDrawerContent {...props} />}
             drawerStyle={{
                 width: '5%',

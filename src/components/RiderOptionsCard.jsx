@@ -98,7 +98,7 @@ useEffect(()=>{
         <TouchableOpacity 
         disabled={!selected} 
         style={{
-          backgroundColor:COLORS.turquoise, 
+          backgroundColor:COLORS.green, 
           paddingVertical:SIZES.padding * 1.8,
            opacity: !selected ? 0.5 : 1
            }}>

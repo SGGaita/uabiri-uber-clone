@@ -97,10 +97,11 @@ export const RegistrationScreen = ({ navigation }) => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         padding: SIZES.button_padding,
-                        backgroundColor: COLORS.black,
+                        backgroundColor: COLORS.green,
                         marginVertical: 20,
+                        borderRadius:35
                     }}>
-                    <Text style={{ fontSize: SIZES.body2 }}>Send OTP</Text>
+                    <Text style={{ color:COLORS.white,fontSize: SIZES.body2 }}>Send OTP</Text>
                 </TouchableOpacity>
             </View>
 

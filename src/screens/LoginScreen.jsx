@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'react-native'
 import React, { useState } from 'react'
-import { COLORS, images, SIZES, icons, routes } from '../constants';
+import { COLORS, SIZES, icons, routes } from '../constants';
+import { CustomSnackBar } from '../components';
 
 export const LoginScreen = ({ navigation }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -15,9 +16,9 @@ export const LoginScreen = ({ navigation }) => {
 
 
   return (
-    <View style={{ backgroundColor: COLORS.white, flexGrow: 1, flexDirection: 'column', alignItems: 'center',  }}>
-      <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: 120, marginBottom:20 }}>
-        <Text style={{ color: COLORS.black, fontSize: 45, fontWeight: 700, marginBottom: 5 }}>Login</Text>
+    <View style={{ backgroundColor: COLORS.white, flexGrow: 1, flexDirection: 'column', alignItems: 'center', }}>
+      <View style={{ flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: 120, marginBottom: 20 }}>
+        <Text style={{ color: COLORS.black, fontSize: 35, fontWeight: 600, marginBottom: 5 }}>Login</Text>
         <Text style={{ color: COLORS.darkgray, fontSize: SIZES.body2, paddingHorizontal: SIZES.padding * 2, textAlign: 'center' }}>Please enter your Full name, email address and password to create your account.</Text>
       </View>
       <TouchableOpacity
@@ -30,10 +31,7 @@ export const LoginScreen = ({ navigation }) => {
           left: 20,
           padding: SIZES.padding * 1,
           borderRadius: 20,
-          shadowColor: COLORS.black,
-          shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.9,
-          shadowRadius: 3.84
+
         }}>
         <Image source={icons.arrowLeft} resizeMode='contain' style={{ width: 15, height: 15, tintColor: COLORS.black }} />
       </TouchableOpacity>
@@ -49,7 +47,7 @@ export const LoginScreen = ({ navigation }) => {
           flexDirection: 'row',
           alignItems: 'center',
           backgroundColor: COLORS.lightGray,
-          borderColor: isFocused ? COLORS.turquoise : COLORS.gray,
+          borderColor: isFocused ? COLORS.green : COLORS.gray,
           borderWidth: 0.5,
           marginBottom: 15
         }}>
@@ -58,7 +56,7 @@ export const LoginScreen = ({ navigation }) => {
             style={{
               flex: 8,
               padding: SIZES.padding * 1.5,
-              color: COLORS.turquoise,
+              color: COLORS.green,
               fontSize: 20,
               borderRadius: 5,
 
@@ -76,7 +74,7 @@ export const LoginScreen = ({ navigation }) => {
           flexDirection: 'row',
           alignItems: 'center',
           backgroundColor: COLORS.lightGray,
-          borderColor: isFocused ? COLORS.turquoise : COLORS.gray,
+          borderColor: isFocused ? COLORS.green : COLORS.gray,
           borderWidth: 0.5,
           marginBottom: 15
         }}>
@@ -85,7 +83,7 @@ export const LoginScreen = ({ navigation }) => {
             style={{
               flex: 8,
               padding: SIZES.padding * 1.5,
-              color: COLORS.turquoise,
+              color: COLORS.green,
               fontSize: 20,
               borderRadius: 5,
 
@@ -99,16 +97,15 @@ export const LoginScreen = ({ navigation }) => {
         </View>
 
         <TouchableOpacity
-        style={{
-          //width: '85%',
-          alignItems: 'center',
-          justifyContent: 'center',
-         
-          marginTop: 50,
-        }}>
-        
-            <Text style={{ color: COLORS.turquoise, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Forgot password?</Text>
-          </TouchableOpacity>
+          style={{
+            //width: '85%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 50,
+          }}>
+
+          <Text style={{ color: COLORS.green, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Forgot password?</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => navigation.navigate(routes.HOME_SCREEN)}
@@ -117,8 +114,9 @@ export const LoginScreen = ({ navigation }) => {
             alignItems: 'center',
             justifyContent: 'center',
             padding: SIZES.button_padding,
-            backgroundColor: COLORS.black,
+            backgroundColor: COLORS.green,
             marginVertical: 20,
+            borderRadius: 35
           }}>
           <Text style={{ color: COLORS.white, fontSize: SIZES.body2 }}>Login</Text>
         </TouchableOpacity>
@@ -127,9 +125,9 @@ export const LoginScreen = ({ navigation }) => {
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginVertical: 10 }}>
           <Text style={{ color: COLORS.darkgray, fontSize: SIZES.body2, paddingHorizontal: SIZES.padding, textAlign: 'center' }}>Already have an account?</Text>
           <TouchableOpacity
-          onPress={() => navigation.navigate(routes.USER_REGISTRATION_SCREEN)}
+            onPress={() => navigation.navigate(routes.USER_REGISTRATION_SCREEN)}
           >
-            <Text style={{ color: COLORS.turquoise, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Sign Up</Text>
+            <Text style={{ color: COLORS.orange, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
 
@@ -137,7 +135,7 @@ export const LoginScreen = ({ navigation }) => {
       </View>
 
 
-      <View style={{ position: 'absolute', bottom: 120, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: SIZES.padding * 2 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', padding: SIZES.padding * 2 }}>
         <View style={{ flex: 1, height: 1, backgroundColor: COLORS.gray }}></View>
         <Text style={{ flex: 1, textAlign: 'center', color: COLORS.darkgray, fontSize: SIZES.h2 }}>Sign in with</Text>
         <View style={{ flex: 1, height: 1, backgroundColor: COLORS.gray }}></View>
@@ -147,7 +145,7 @@ export const LoginScreen = ({ navigation }) => {
 
       </View>
 
-      <View style={{ position: 'absolute', bottom: 50, width: '30%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: SIZES.padding * 2 }}>
+      <View style={{ width: '30%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: SIZES.padding * 2 }}>
 
         <TouchableOpacity>
           <Image source={icons.google} resizeMode='contain' style={{ width: 30, height: 30 }} />
@@ -159,6 +157,9 @@ export const LoginScreen = ({ navigation }) => {
 
 
 
+      </View>
+      <View style={{ flex: 1, position: 'absolute', bottom: 0, left: 30, right: 0, width: '100%' }}>
+        <CustomSnackBar visible={visible} onDismissSnackBar={onDismissSnackBar} message={error} />
       </View>
 
     </View>

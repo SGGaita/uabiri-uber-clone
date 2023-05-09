@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">uabiriUber</string>
+    <string name="copyright_text">Copyright © 2023 My Company</string>
+
 </resources>

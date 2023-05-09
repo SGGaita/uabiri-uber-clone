@@ -10,6 +10,9 @@ const user = require('../assets/icons/user.png')
 const google = require('../assets/icons/google.png')
 const apple = require('../assets/icons/apple.png')
 const kenya =require('../assets/icons/kenya.png')
+const close = require('../assets/icons/close.png')
+const check = require('../assets/icons/tick.png')
+const info = require('../assets/icons/info.png')
+const warning = require('../assets/icons/alert.png')
 
-
-export default { arrowRight, arrowLeft, briefcase, busFront,email,google,apple,home,lock, menu, user, kenya }
+export default { arrowRight, arrowLeft, briefcase, busFront,email,google,apple,home,lock, menu, user, kenya, close,check, info, warning }
