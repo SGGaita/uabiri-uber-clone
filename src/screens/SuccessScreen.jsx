@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View, Image, SafeAreaView, ActivityIndicator } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SIZES, images, routes } from '../constants'
 import * as Animatable from "react-native-animatable"
 
-export const SuccessScreen = ({navigation}) => {
+export const SuccessScreen = ({ navigation }) => {
 
-  useEffect(()=>{
-setTimeout(()=>{
-  navigation.navigate(routes.LOGIN_SCREEN)
-},4000)
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate(routes.LOGIN_SCREEN)
+    }, 4000)
+  }, [])
 
 
   return (
@@ -22,11 +22,11 @@ setTimeout(()=>{
       <Animatable.Text
         animation="slideInUp"
         iterationCount={1}
-        style={{textAlign:'center',fontSize:SIZES.h2, fontWeight:200, paddingHorizontal:20}}
+        style={{ textAlign: 'center', fontSize: SIZES.h2, fontWeight: 200, paddingHorizontal: 20 }}
       >
         Successful Signup. you are being redirected to Login!
       </Animatable.Text>
-      <ActivityIndicator style={{marginTop:36}} size={60} color='grey' />
+      <ActivityIndicator style={{ marginTop: 36 }} size={60} color='grey' />
     </SafeAreaView>
   )
 }

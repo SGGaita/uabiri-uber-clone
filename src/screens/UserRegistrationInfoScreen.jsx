@@ -15,8 +15,9 @@ export const UserRegistrationInfoScreen = ({ navigation }) => {
   const [fullNameError, setFullNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [visible, setVisible] = useState(true)
-  const [error, setError] = useState("Error")
+  const [visible, setVisible] = useState(false)
+  const [message, setMessage] = useState("")
+  const [type, setType] = useState('')
 
 
   const handleFocus = () => {
@@ -33,7 +34,8 @@ export const UserRegistrationInfoScreen = ({ navigation }) => {
   };
 
   const handleEmailChange = (text) => {
-    setEmail(text);
+    const trimmedText = text.trim(); // remove leading and trailing spaces
+    setEmail(trimmedText);
     setEmailError('');
   };
 
@@ -72,42 +74,55 @@ export const UserRegistrationInfoScreen = ({ navigation }) => {
   };
 
 
-  const handleSignUp = (() => {
+  const handleSignUp = async() => {
     if (validateInputs()) {
-      setShow(true); 
+      setShow(true);
+
+
+     await auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          userCredential.user.updateProfile({
+            displayName: fullName,
+            phoneNumber: '+254723272915'
+          });
+          firestore()
+            .collection('Users')
+            .doc(userCredential.user.uid)
+            .set({
+              email: email,
+              fullName: fullName,
+            })
+            .then(() => {
+              setShow(false)
+              setType('success')
+              setMessage('Account has been created!')
+              setVisible(true)
+              setTimeout(() => {
+                navigation.navigate(routes.SUCCESS_SCREEN)
+              }, 3000)
+
+            }).catch(error => {
+              setShow(false)
+              setMessage(error)
+            });
+        })
+        .catch(error => {
+          setShow(false)
+          if (error.code === 'auth/email-already-in-use') {
+            console.log('That email address is already in use!');
+            setMessage('That email address is already in use!')
+            setVisible(true)
+          }
+          if (error.code === 'auth/invalid-email') {
+            setMessage('That email address is invalid!!')
+            setVisible(true)
+          }
+        });
+
     }
 
-    auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        console.log('User account created & signed in!', userCredential.user.uid);
-        firestore()
-          .collection('Users')
-          .doc(userCredential.user.uid)
-          .set({
-            email: email,
-            fullName: fullName,
-          })
-          .then(() => {
-            setShow(false)
-            navigation.navigate(routes.SUCCESS_SCREEN)
-          }).catch(error => {
-            setShow(false)
-            console.log("error", error)
-          });
-      })
-      .catch(error => {
-        setShow(false)
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
-        }
-        console.error(error);
-      });
-
-  })
+  }
 
 
   return (
@@ -270,7 +285,7 @@ export const UserRegistrationInfoScreen = ({ navigation }) => {
           <Image source={icons.apple} resizeMode='contain' style={{ width: 30, height: 30 }} />
         </TouchableOpacity>
       </View>
-      <CustomSnackBar visible={visible} onDismissSnackBar={onDismissSnackBar} type="warning" message={error} />
+      <CustomSnackBar visible={visible} onDismissSnackBar={onDismissSnackBar} type={type} message={message} onPress={onDismissSnackBar} />
     </View>
   )
 }

@@ -3,7 +3,7 @@ import { Snackbar } from 'react-native-paper';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { images, COLORS, icons } from '../constants';
 
-export const CustomSnackBar = ({ visible, onDismissSnackBar, type, message, snackbarBgColor, iconBgColor }) => {
+export const CustomSnackBar = ({ visible, onDismissSnackBar, type, message, snackbarBgColor, iconBgColor, onPress }) => {
   let backgroundColor, iconBackgroundColor, icon;
 
   switch (type) {
@@ -33,13 +33,13 @@ export const CustomSnackBar = ({ visible, onDismissSnackBar, type, message, snac
       iconBackgroundColor = iconBgColor || COLORS.darkRed;
       tintColor = COLORS.darkRed;
       icon = icons.close;
-      heading="Well Done!";
+      heading="Oh Snap!";
   }
 
   return (
     <Snackbar
       visible={visible}
-      duration={300000}
+      duration={40000}
       onDismiss={onDismissSnackBar}
       style={[styles.snackbar, { backgroundColor }]}
     >
@@ -54,7 +54,9 @@ export const CustomSnackBar = ({ visible, onDismissSnackBar, type, message, snac
         <Text style={styles.heading}>{heading}</Text>
           <Text style={styles.message}>{message}</Text>
         </View>
-        <TouchableOpacity style={styles.closeButton} onPress={onDismissSnackBar}>
+        <TouchableOpacity
+        onPress={onPress}
+        style={styles.closeButton} >
           <Image source={icons.close} resizeMode='contain' style={styles.closeIcon} />
         </TouchableOpacity>
       </View>

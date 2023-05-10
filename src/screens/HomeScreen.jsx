@@ -1,15 +1,22 @@
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useEffect} from 'react'
 import { COLORS, icons, SIZES, routes, images } from '../constants'
 import { NavFavorites, NavOptions } from '../components'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setOrigin, setDestination } from '../redux/navSlice'
+import { selectUser } from '../redux/userSlice';
 
 
 export const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
+  const user = useSelector(selectUser)
+
+
+  useEffect(()=>{
+    console.log(user.name)
+  },[])
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -29,6 +36,11 @@ export const HomeScreen = ({ navigation }) => {
           <Image source={icons.menu} resizeMode='contain' style={{ width: 20, height: 20, tintColor: COLORS.white }} />
         </TouchableOpacity>
       </View>
+
+      <View>
+        <Text>Hello, {user.name}</Text>
+      </View>
+     
       <View style={styles.container}>
 
 

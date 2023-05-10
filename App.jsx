@@ -33,7 +33,7 @@ const App = () => {
                                 behavior={Platform.OS === "ios" ? "padding" : "height"}
                                 style={{ flex: 1 }}>
                                 <Drawer.Navigator
-                                    initialRouteName={routes.USER_REGISTRATION_SCREEN}
+                                    initialRouteName={routes.LOGIN_SCREEN}
                                 >
                                     <Drawer.Screen
                                         name={routes.START_SCREEN}
