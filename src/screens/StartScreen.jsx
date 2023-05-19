@@ -15,13 +15,13 @@ export const StartScreen = ({ navigation }) => {
 
 
             <TouchableOpacity
-            onPress={()=>navigation.navigate(routes.REGISTRATION_SCREEN)}
+            onPress={()=>navigation.navigate(routes.USER_REGISTRATION_SCREEN)}
                 style={{
                     width: '85%',
                     alignItems: 'center',
                     justifyContent: 'center',
                     padding: SIZES.button_padding,
-                    backgroundColor: COLORS.green,
+                    backgroundColor: COLORS.secondary,
                     marginVertical: 15,
                     borderRadius:35
                 }}>
@@ -39,7 +39,7 @@ export const StartScreen = ({ navigation }) => {
                     elevation: 4, // add elevation to create shadow
                     borderRadius:35
                 }}>
-                <Text style={{ fontSize: SIZES.body2, color: COLORS.black }}>Login</Text>
+                <Text style={{ fontSize: SIZES.body2, color: COLORS.primary}}>Login</Text>
             </TouchableOpacity>
         </View>
     )

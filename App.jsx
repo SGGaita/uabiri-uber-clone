@@ -2,24 +2,29 @@ import { KeyboardAvoidingView, Platform } from 'react-native'
 import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { store } from './src/redux/store';
-import { LoginScreen, OtpScreen, RegistrationScreen, StartScreen, UserRegistrationInfoScreen, SuccessScreen } from './src/screens';
+import { LoginScreen, OtpScreen, RegistrationScreen, StartScreen, UserRegistrationInfoScreen, SuccessScreen, MapScreen } from './src/screens';
 import { routes } from './src/constants/';
 import { MainNavigation } from './src/navigation/mainNavigation';
 import SplashScreen from 'react-native-splash-screen'
+import { selectUser } from './src/redux/userSlice';
 
 
 
 
 const Drawer = createDrawerNavigator();
 
+
 const App = () => {
+
 
     useEffect(() => {
         SplashScreen.hide();
+
+
     }, []);
 
 
@@ -33,7 +38,7 @@ const App = () => {
                                 behavior={Platform.OS === "ios" ? "padding" : "height"}
                                 style={{ flex: 1 }}>
                                 <Drawer.Navigator
-                                    initialRouteName={routes.LOGIN_SCREEN}
+                                    initialRouteName={routes.HOME_SCREEN}
                                 >
                                     <Drawer.Screen
                                         name={routes.START_SCREEN}
@@ -78,7 +83,7 @@ const App = () => {
                                         options={{
                                             headerShown: false,
                                         }} />
-
+                                    
                                 </Drawer.Navigator>
                             </KeyboardAvoidingView>
                         </SafeAreaProvider>

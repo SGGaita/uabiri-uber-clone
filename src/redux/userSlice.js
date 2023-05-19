@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  isAuthenticated: false,
   uid: null,
   name: null,
   //phone: null,
@@ -11,11 +12,13 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
+      state.isAuthenticated = true;
       state.uid = action.payload.uid;
       state.name = action.payload.name;
       //state.phone = action.payload.phone;
     },
     clearUser: (state) => {
+      state.isAuthenticated = false;
       state.uid = null;
       state.name = null;
       //state.phone = null;

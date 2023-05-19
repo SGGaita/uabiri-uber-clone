@@ -14,16 +14,18 @@ const data = [
   {
     id: 'Mini-bus-456',
     title: 'Mini Bus',
-    multiplier: 1.5,
+    multiplier: 1.2,
     image: 'minibus'
   },
   {
     id: 'Bus-789',
     title: 'Bus',
-    multiplier: 1.75,
+    multiplier: 1.4,
     image: 'bus'
   },
 ]
+
+const SURGE_CHARGE_RATE = 1.6
 
 
 export const RiderOptionsCard = ({ navigation }) => {
@@ -71,7 +73,7 @@ useEffect(()=>{
             flexDirection: 'row', 
             alignItems: "center", 
             justifyContent: 'space-between',
-            backgroundColor: id === selected?.id ? COLORS.gray : COLORS.white,
+            backgroundColor: id === selected?.id ? COLORS.secondary : COLORS.white,
             }}>
 
             <Image
@@ -84,11 +86,20 @@ useEffect(()=>{
             />
 
             <View style={{flex:1,marginLeft:40}}>
-              <Text style={{ ...FONTS.h2,color: COLORS.black }}>{title}</Text>
-              <Text style={{ color: COLORS.black }}>{travelTimeInformation?.duration?.text} Travel time</Text>
+              <Text style={{ ...FONTS.h2,color:id === selected?.id ? COLORS.white : COLORS.primary, }}>{title}</Text>
+              <Text style={{ color:id === selected?.id ? COLORS.white : COLORS.primary }}>{travelTimeInformation?.duration?.text} Travel time</Text>
             </View>
 
-            <Text style={{ ...FONTS.h2,color: COLORS.black }}>Kes 70</Text>
+            <Text style={{ ...FONTS.h2,color:id === selected?.id ? COLORS.white : COLORS.primary }}>
+              {
+                new Intl.NumberFormat('en-gb', {
+                  style:'currency',
+                  currency:'KES'
+                }).format(
+                  (travelTimeInformation?.duration.value *  multiplier)/29.9
+                )
+              }
+            </Text>
           </TouchableOpacity>
         )
         }
@@ -96,9 +107,12 @@ useEffect(()=>{
 
       <View>
         <TouchableOpacity 
+        onPress={()=> navigation.navigate(routes.SELECT_SEAT_SCREEN)
+        }
+        
         disabled={!selected} 
         style={{
-          backgroundColor:COLORS.green, 
+          backgroundColor:COLORS.primary, 
           paddingVertical:SIZES.padding * 1.8,
            opacity: !selected ? 0.5 : 1
            }}>

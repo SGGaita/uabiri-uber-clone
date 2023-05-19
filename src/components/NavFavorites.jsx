@@ -38,7 +38,7 @@ export const NavFavorites = () => {
                     style={{ padding: SIZES.padding * 2, flexDirection: 'row', alignItems: "center", }}>
                     <View style={{
 
-                        backgroundColor: COLORS.gray,
+                        backgroundColor: COLORS.inputBlue,
                         padding: SIZES.padding * 1,
                         borderRadius: 20,
                         marginRight: 20
@@ -49,7 +49,7 @@ export const NavFavorites = () => {
                             style={{
                                 width: 20,
                                 height: 20,
-                                tintColor: COLORS.black,
+                                tintColor: COLORS.primary,
 
                             }}
                         />

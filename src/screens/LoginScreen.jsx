@@ -61,7 +61,7 @@ export const LoginScreen = ({ navigation }) => {
     return valid;
   };
 
-  const handleLogin = async() => {
+  const handleLogin = async () => {
     if (validateInputs()) {
       setShow(true);
 
@@ -73,18 +73,14 @@ export const LoginScreen = ({ navigation }) => {
           console.log(uid)
           console.log(displayName)
 
-           dispatch(setUser({
-            uid:uid,
-             name: displayName,
-             //phone: phoneNumber,
-           }));
+          dispatch(setUser({
+            uid: uid,
+            name: displayName,
+            //phone: phoneNumber,
+          }));
           setShow(false)
-          setType('success')
-          setMessage('Successful sign in!')
-          setVisible(true)
-          setTimeout(() => {
-            navigation.navigate(routes.HOME_SCREEN)
-          }, 3000)
+          navigation.navigate(routes.HOME_SCREEN)
+
         }).catch((error) => {
 
           setShow(false);
@@ -122,7 +118,7 @@ export const LoginScreen = ({ navigation }) => {
     }
   }
 
- 
+
 
 
   return (
@@ -156,17 +152,17 @@ export const LoginScreen = ({ navigation }) => {
         <View style={{
           flexDirection: 'row',
           alignItems: 'center',
-          backgroundColor: COLORS.lightGray,
-          borderColor: isFocused ? COLORS.green : COLORS.gray,
+          backgroundColor: COLORS.inputBlue,
+          borderColor: isFocused ? COLORS.transparent : COLORS.inputBlue,
           borderWidth: 0.5,
           marginBottom: 15
         }}>
-          <Image source={icons.email} resizeMode='contain' style={{ flex: 1, padding: SIZES.padding * 0.5, width: 30, height: 30, tintColor: COLORS.darkgray }} />
+          <Image source={icons.email} resizeMode='contain' style={{ flex: 1, padding: SIZES.padding * 0.5, width: 20, height: 20, tintColor: COLORS.primary }} />
           <TextInput
             style={{
               flex: 8,
               padding: SIZES.padding * 1.5,
-              color: COLORS.green,
+              color: COLORS.primary,
               fontSize: 20,
               borderRadius: 5,
 
@@ -184,17 +180,17 @@ export const LoginScreen = ({ navigation }) => {
         <View style={{
           flexDirection: 'row',
           alignItems: 'center',
-          backgroundColor: COLORS.lightGray,
-          borderColor: isFocused ? COLORS.green : COLORS.gray,
+          backgroundColor: COLORS.inputBlue,
+          borderColor: isFocused ? COLORS.transparent : COLORS.secondary,
           borderWidth: 0.5,
           marginBottom: 15
         }}>
-          <Image source={icons.lock} resizeMode='contain' style={{ flex: 1, padding: SIZES.padding * 0.5, width: 30, height: 30, tintColor: COLORS.darkgray }} />
+          <Image source={icons.lock} resizeMode='contain' style={{ flex: 1, padding: SIZES.padding * 0.5, width: 30, height: 30, tintColor: COLORS.primary }} />
           <TextInput
             style={{
               flex: 8,
               padding: SIZES.padding * 1.5,
-              color: COLORS.green,
+              color: COLORS.primary,
               fontSize: 20,
               borderRadius: 5,
 
@@ -217,7 +213,7 @@ export const LoginScreen = ({ navigation }) => {
             marginTop: 50,
           }}>
 
-          <Text style={{ color: COLORS.green, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Forgot password?</Text>
+          <Text style={{ color: COLORS.primary, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Forgot password?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -227,7 +223,7 @@ export const LoginScreen = ({ navigation }) => {
             alignItems: 'center',
             justifyContent: 'center',
             padding: SIZES.button_padding,
-            backgroundColor: COLORS.green,
+            backgroundColor: COLORS.secondary,
             marginVertical: 20,
             borderRadius: 35
           }}>
@@ -235,7 +231,6 @@ export const LoginScreen = ({ navigation }) => {
             (
               <>
                 <ActivityIndicator size={25} color='white' />
-                <Text style={{ color: COLORS.white, ...FONTS.body2 }}>Signing in...</Text>
               </>
             ) : (
               <Text style={{ color: COLORS.white, fontSize: SIZES.body2 }}>Sign in</Text>
@@ -249,7 +244,7 @@ export const LoginScreen = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate(routes.USER_REGISTRATION_SCREEN)}
           >
-            <Text style={{ color: COLORS.orange, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Sign Up</Text>
+            <Text style={{ color: COLORS.primary, fontSize: SIZES.h2, fontWeight: 700, marginVertical: 5 }}>Sign Up</Text>
           </TouchableOpacity>
         </View>
       </View>

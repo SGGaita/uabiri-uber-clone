@@ -11,11 +11,10 @@ import { selectUser } from '../redux/userSlice';
 
 export const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser)
 
 
   useEffect(()=>{
-    console.log(user.name)
+  
   },[])
 
   return (
@@ -36,10 +35,6 @@ export const HomeScreen = ({ navigation }) => {
           <Image source={icons.menu} resizeMode='contain' style={{ width: 20, height: 20, tintColor: COLORS.white }} />
         </TouchableOpacity>
       </View>
-
-      <View>
-        <Text>Hello, {user.name}</Text>
-      </View>
      
       <View style={styles.container}>
 
@@ -49,7 +44,8 @@ export const HomeScreen = ({ navigation }) => {
           placeholder='Where From?'
           textInputProps={{
             placeholderTextColor: COLORS.gray,
-            returnKeyType: "search"
+            returnKeyType: "search",
+            backgroundColor:COLORS.inputBlue
           }}
           nearbyPlacesAPI='GooglePlacesSearch'
           debounce={400}
@@ -77,7 +73,7 @@ export const HomeScreen = ({ navigation }) => {
             },
             textInput: {
               fontSize: 18,
-              color: COLORS.darkgray,
+              color: COLORS.primary,
             },
             predefinedPlacesDescription: {
               color: 'black',
@@ -92,7 +88,7 @@ export const HomeScreen = ({ navigation }) => {
               flexDirection: 'row',
             },
             description: {
-              color: COLORS.darkgray
+              color: COLORS.black
             },
           }}
         />
@@ -108,7 +104,7 @@ export const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   header: {
     flexDirection:'column',
-    backgroundColor: '#085156'
+    backgroundColor: COLORS.primary
   },
 
   

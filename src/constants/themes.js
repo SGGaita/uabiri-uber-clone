@@ -5,33 +5,32 @@ const { width, height } = Dimensions.get("window");
 export const COLORS = {
     // base colors
 
-    turquoise: '#1e7c8d',
-    green: '#085156',
+    primary: "#173156",
+    secondary: "#60ADB7",
 
-    orange: '#F7931E',
+    inputBlue: "#EDF5F7",
 
-    black: "#1E1F20",
-    white: "#FFFFFF",
-
-    lightGray: "#f2f2f2",
-    gray: "#C1C3C5",
-    darkgray: "#666666",
+     white: "#FAFFFF", 
+     darkgray: "#565656",
+     gray: "#ccc",
+     black: "#000000",
+    
 
 
     transparent: "transparent",
 
-//snackbar colors
-red:'#c72c41',
-darkRed:'#801336',
+    //snackbar colors
+    red: '#c72c41',
+    darkRed: '#801336',
 
-greens:'#0c7040',
-darkGreen:'#004e32',
+    greens: '#0c7040',
+    darkGreen: '#004e32',
 
-blue:'#0070e0',
-darkBlue:'#05478a',
+    blue: '#0070e0',
+    darkBlue: '#05478a',
 
-oranges:'#ef8d32',
-darkOrange:'#cb4f14',
+    oranges: '#ef8d32',
+    darkOrange: '#cb4f14',
 
 };
 

@@ -58,8 +58,8 @@ export const Map = () => {
             style={{ flex: 1 }}
             mapType="standard"
             initialRegion={{
-                latitude: origin.location.lat,
-                longitude: origin.location.lng,
+                latitude: origin?.location.lat,
+                longitude: origin?.location.lng,
                 latitudeDelta: 0.095,
                 longitudeDelta: 0.095,
             }}
@@ -67,11 +67,11 @@ export const Map = () => {
         >
             {origin && destination && (
                 <MapViewDirections
-                    origin={origin.description}
-                    destination={destination.description}
+                    origin={origin?.description}
+                    destination={destination?.description}
                     apikey={GOOGLE_MAPS_APIKEY}
                     strokeWidth={5}
-                    strokeColor="#074851"
+                    strokeColor={COLORS.primary}
                     identifier='directions'
                     onError={(errorMessage) => {
                         console.log('This error message', errorMessage)
@@ -90,10 +90,14 @@ export const Map = () => {
                     title='Pick up'
                     description={origin.description}
                     identifier='origin'
-                    
+                    callout={{
+                        // Make the callout always open
+                        tooltip: true,
+                      }}
                     
                 >
                     <Image source={images.location} resizeMode='contain' style={{ width: 30, height: 30,  }} />
+                   
 
                 </Marker>
             )}
@@ -104,13 +108,13 @@ export const Map = () => {
                         latitude: destination.location.lat,
                         longitude: destination.location.lng,
                     }}
-                    title='drop off'
+                    title='Drop off'
                     description={destination.description}
                     identifier='destination'
                     
                     >
                         
-                    <Image source={images.location} resizeMode='contain' style={{ width: 30, height: 30, }} />
+                    <Image source={images.destination} resizeMode='contain' style={{ width: 30, height: 30, }} />
 
                 </Marker>
             )}

@@ -15,14 +15,15 @@ export const NavigationCard = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             <Greetings onPress={()=> navigation.navigate(routes.HOME_DRAWER)} />
-            <View style={{ borderTopColor: COLORS.lightGray, borderTopWidth: 2, flexShrink: 1 }}>
+            <View style={{ borderTopColor: COLORS.gray, borderTopWidth: 2, flexShrink: 1 }}>
                 <View>
                     <GooglePlacesAutocomplete
 
                         placeholder='Where From?'
                         textInputProps={{
-                            placeholderTextColor: COLORS.gray,
-                            returnKeyType: "search"
+                            placeholderTextColor: COLORS.darkgray,
+                            returnKeyType: "search",
+                            backgroundColor:COLORS.inputBlue
                         }}
                         nearbyPlacesAPI='GooglePlacesSearch'
                         debounce={400}
@@ -53,7 +54,7 @@ export const NavigationCard = ({ navigation }) => {
                 justifyContent: 'center',
                 paddingVertical: SIZES.padding * 2,
                 marginTop: 'auto',
-                borderColor: COLORS.lightGray,
+                borderColor: COLORS.gray,
                 borderTopWidth: 1
             }}>
                 <TouchableOpacity
@@ -70,7 +71,7 @@ export const NavigationCard = ({ navigation }) => {
                             borderRadius: 30,
                             paddingHorizontal: SIZES.padding * 2.1,
                             paddingVertical: SIZES.padding * 1,
-                            backgroundColor: COLORS.green,
+                            backgroundColor: COLORS.primary,
                             alignContent: 'center',
                             justifyContent: 'space-between',
                             opacity: !destination ? 0.5 : 1,
@@ -83,7 +84,7 @@ export const NavigationCard = ({ navigation }) => {
                         style={{
                             width: 20,
                             height: 20,
-                            tintColor: COLORS.orange,
+                            tintColor: COLORS.white,
 
                         }}
                     />

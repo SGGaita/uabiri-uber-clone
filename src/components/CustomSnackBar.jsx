@@ -39,7 +39,7 @@ export const CustomSnackBar = ({ visible, onDismissSnackBar, type, message, snac
   return (
     <Snackbar
       visible={visible}
-      duration={40000}
+      duration={2000}
       onDismiss={onDismissSnackBar}
       style={[styles.snackbar, { backgroundColor }]}
     >

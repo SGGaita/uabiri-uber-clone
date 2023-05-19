@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { COLORS, FONTS, SIZES, icons } from '../constants'
+import { selectUser } from '../redux/userSlice';
+import { useSelector } from 'react-redux';
 
 export const Greetings = ({ onPress }) => {
     const [today, setToday] = useState(new Date());
-
+const user = useSelector(selectUser)
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -42,7 +44,7 @@ export const Greetings = ({ onPress }) => {
             >
                 <Image source={icons.arrowLeft} resizeMode='contain' style={{ width: 15, height: 15 }} />
             </TouchableOpacity>
-            <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 2, ...FONTS.h2 }}>{greeting}, Steve</Text>
+            <Text style={{ color: COLORS.black, alignSelf: 'center', paddingVertical: SIZES.padding * 2, ...FONTS.h2 }}>{greeting}, {user.name}</Text>
         </View>
     )
 }
