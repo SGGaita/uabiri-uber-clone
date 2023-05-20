@@ -3,7 +3,7 @@ import React from 'react'
 
 const AvatarEditScreen = () => {
   return (
-    <SafeAreaView style={{}}>
+    <SafeAreaView >
       
     </SafeAreaView>
   )

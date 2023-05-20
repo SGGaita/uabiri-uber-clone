@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { COLORS, SIZES, FONTS, icons, images,routes } from '../constants'
+import { COLORS, SIZES, FONTS, icons, images, routes } from '../constants'
 import { useSelector } from 'react-redux'
 import { selectTravelTimeInformation } from '../redux/navSlice'
 
@@ -33,11 +33,11 @@ export const RiderOptionsCard = ({ navigation }) => {
   const travelTimeInformation = useSelector(selectTravelTimeInformation)
 
 
-useEffect(()=>{
+  useEffect(() => {
 
- 
 
-},[selected])
+
+  }, [selected])
 
   return (
     <SafeAreaView style={{ backgroundColor: COLORS.white, flexGrow: 1 }}>
@@ -68,12 +68,13 @@ useEffect(()=>{
         renderItem={({ item: { id, title, multiplier, image }, item }) =>
         (
           <TouchableOpacity
-          onPress={(()=>setSelected(item))}
-            style={{ padding: SIZES.padding * 2,
-            flexDirection: 'row', 
-            alignItems: "center", 
-            justifyContent: 'space-between',
-            backgroundColor: id === selected?.id ? COLORS.secondary : COLORS.white,
+            onPress={(() => setSelected(item))}
+            style={{
+              padding: SIZES.padding * 2,
+              flexDirection: 'row',
+              alignItems: "center",
+              justifyContent: 'space-between',
+              backgroundColor: id === selected?.id ? COLORS.secondary : COLORS.white,
             }}>
 
             <Image
@@ -85,18 +86,18 @@ useEffect(()=>{
               source={images[image]}
             />
 
-            <View style={{flex:1,marginLeft:40}}>
-              <Text style={{ ...FONTS.h2,color:id === selected?.id ? COLORS.white : COLORS.primary, }}>{title}</Text>
-              <Text style={{ color:id === selected?.id ? COLORS.white : COLORS.primary }}>{travelTimeInformation?.duration?.text} Travel time</Text>
+            <View style={{ flex: 1, marginLeft: 40 }}>
+              <Text style={{ ...FONTS.h2, color: id === selected?.id ? COLORS.white : COLORS.primary, }}>{title}</Text>
+              <Text style={{ color: id === selected?.id ? COLORS.white : COLORS.primary }}>{travelTimeInformation?.duration?.text} Travel time</Text>
             </View>
 
-            <Text style={{ ...FONTS.h2,color:id === selected?.id ? COLORS.white : COLORS.primary }}>
+            <Text style={{ ...FONTS.h2, color: id === selected?.id ? COLORS.white : COLORS.primary }}>
               {
                 new Intl.NumberFormat('en-gb', {
-                  style:'currency',
-                  currency:'KES'
+                  style: 'currency',
+                  currency: 'KES'
                 }).format(
-                  (travelTimeInformation?.duration.value *  multiplier)/29.9
+                  (travelTimeInformation?.duration.value * multiplier) / 29.9
                 )
               }
             </Text>
@@ -106,17 +107,21 @@ useEffect(()=>{
       />
 
       <View>
-        <TouchableOpacity 
-        onPress={()=> navigation.navigate(routes.SELECT_SEAT_SCREEN)
-        }
-        
-        disabled={!selected} 
-        style={{
-          backgroundColor:COLORS.primary, 
-          paddingVertical:SIZES.padding * 1.8,
-           opacity: !selected ? 0.5 : 1
-           }}>
-          <Text style={{textAlign:'center',color:COLORS.white, ...FONTS.h3}}>Choose {selected?.title}</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(routes.SELECT_SEAT_SCREEN)
+          }
+
+          disabled={!selected}
+          style={{
+            backgroundColor: COLORS.primary,
+            paddingVertical: SIZES.padding * 1.8,
+            opacity: !selected ? 0.5 : 1,
+            flexDirection:"row",
+            alignItems:'center',
+            justifyContent:'center'
+          }}>
+          <Text style={{ textAlign: 'center', color: COLORS.white, ...FONTS.h3 }}>Choose {selected?.title}</Text>
+          <Image source={icons.rightArrow} resizeMode='contain' style={{ position:'absolute',right:10,width: 15, height: 15, tintColor: COLORS.white }} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

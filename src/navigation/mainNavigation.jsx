@@ -6,17 +6,20 @@ import { routes, COLORS, FONTS, images, SIZES, icons } from '../constants/';
 import { selectUser } from '../redux/userSlice';
 import { useSelector } from 'react-redux';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useWindowDimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import AvatarChange from '../components/AvatarChange';
 import AvatarEditScreen from '../screens/AvatarEditScreen';
+
 
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 
-const CustomDrawerContent = ({ navigation, ...props }) => {
+const CustomDrawerContent = (props) => {
     const { name } = useSelector(selectUser)
+    const navigation = useNavigation();
+
 
     return (
         <DrawerContentScrollView {...props} contentContainerStyle={{ flex: 1, }}>
