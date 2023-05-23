@@ -1,27 +1,31 @@
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity, FlatList } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { COLORS, SIZES, FONTS, icons, images, routes } from '../constants'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectTravelTimeInformation } from '../redux/navSlice'
+import { setType } from '../redux/vehicleTypeSlice'
 
 const data = [
   {
     id: 'Matatu-123',
     title: '14 Seater',
     multiplier: 1,
-    image: 'van'
+    image: 'van',
+    type:'14-seater'
   },
   {
     id: 'Mini-bus-456',
     title: 'Mini Bus',
     multiplier: 1.2,
-    image: 'minibus'
+    image: 'minibus',
+    type:'33-seater'
   },
   {
     id: 'Bus-789',
     title: 'Bus',
     multiplier: 1.4,
-    image: 'bus'
+    image: 'bus',
+    type:'49-seater'
   },
 ]
 
@@ -31,6 +35,14 @@ const SURGE_CHARGE_RATE = 1.6
 export const RiderOptionsCard = ({ navigation }) => {
   const [selected, setSelected] = useState(null)
   const travelTimeInformation = useSelector(selectTravelTimeInformation)
+  const dispatch = useDispatch()
+
+
+  const handleVehicleSelection = (type,item) => {
+    console.log(type)
+    dispatch(setType(type))
+    setSelected(item);
+  };
 
 
   useEffect(() => {
@@ -65,10 +77,10 @@ export const RiderOptionsCard = ({ navigation }) => {
           </View>
         )}
         keyExtractor={(item) => item.id}
-        renderItem={({ item: { id, title, multiplier, image }, item }) =>
+        renderItem={({ item: { id, title, multiplier, image , type}, item }) =>
         (
           <TouchableOpacity
-            onPress={(() => setSelected(item))}
+          onPress={() => handleVehicleSelection(type,item)}
             style={{
               padding: SIZES.padding * 2,
               flexDirection: 'row',

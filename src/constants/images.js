@@ -1,5 +1,5 @@
 const logo = require('../assets/images/logo.png')
-const van = require('../assets/images/van.png')
+const van  = require('../assets/images/van.png')
 const bus = require('../assets/images/bus.png')
 const minibus = require('../assets/images/mini-bus.png')
 const stage = require('../assets/images/busstop.png')
@@ -15,21 +15,4 @@ const booked = require('../assets/images/booked_seat.png')
 const available = require('../assets/images/available_seat.png')
 const selected = require('../assets/images/selected_seat.png')
 
-export default {
-    avatar,
-    location,
-    corner,
-    logo,
-    van,
-    bus,
-    minibus,
-    booked,
-    available,
-    selected,
-    stage,
-    signup,
-    otp,
-    success,
-    splatter,
-    destination
-}
+export default {avatar,location,corner,logo, van, bus, minibus,booked,available,selected, stage, signup, otp, success,splatter, destination}

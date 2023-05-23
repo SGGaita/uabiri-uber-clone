@@ -19,7 +19,7 @@ export const NavigationCard = ({ navigation }) => {
                 <View>
                     <GooglePlacesAutocomplete
 
-                        placeholder='Where From?'
+                        placeholder='Where to?'
                         textInputProps={{
                             placeholderTextColor: COLORS.darkgray,
                             returnKeyType: "search",

@@ -1,35 +1,59 @@
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { COLORS, FONTS, SIZES, icons, images } from '../constants'
 import Svg, { Circle } from 'react-native-svg';
-import Layout from '../svg/Layout.svg'
+import Layout14Seater from '../svg/Layout14Seater.svg';
+import Layout33Seater from '../svg/Layout33Seater.svg';
+import Layout49Seater from '../svg/Layout49Seater.svg';
+import { selectType } from '../redux/vehicleTypeSlice';
+import { useSelector } from 'react-redux';
 
 export const SelectSeatScreen = ({ navigation }) => {
+    const vehicleType = useSelector(selectType)
+
+    useEffect(() => {
+        console.log(vehicleType)
+    }, [])
+
+    const renderVehicleLayout = () => {
+        switch (vehicleType) {
+            case '14-seater':
+                return <Layout14Seater height={650} />;
+            case '33-seater':
+                return <Layout33Seater height={650} />;
+            case '49-seater':
+                return <Layout49Seater height={650} />;
+            default:
+                return null;
+        }
+    };
+
+
     return (
         <SafeAreaView style={{ backgroundColor: COLORS.white, flexGrow: 1 }}>
             <View
                 style={{
                     flexDirection: 'row',
-                    paddingHorizontal:10,
-                    marginTop:15
+                    paddingHorizontal: 10,
+                    marginTop: 15
                 }}
             >
-                <View style={{ flexDirection: 'column',paddingRight:10, alignItems:'center' }}>
-                    <Image source={images.booked} resizeMode='contain' style={{ width: 30, height: 30 }} />
-                    <Text>Booked</Text>
-                </View>
-                <View style={{ flexDirection: 'column',paddingRight:10,alignItems:'center' }}>
+                <View style={{ flexDirection: 'column', paddingRight: 10, alignItems: 'center' }}>
                     <Image source={images.available} resizeMode='contain' style={{ width: 30, height: 30 }} />
                     <Text>Available</Text>
                 </View>
-                <View style={{ flexDirection: 'column',paddingRight:10,alignItems:'center' }}>
+                <View style={{ flexDirection: 'column', paddingRight: 10, alignItems: 'center' }}>
                     <Image source={images.selected} resizeMode='contain' style={{ width: 30, height: 30 }} />
                     <Text>Selected</Text>
+                </View>
+                <View style={{ flexDirection: 'column', paddingRight: 10, alignItems: 'center' }}>
+                    <Image source={images.booked} resizeMode='contain' style={{ width: 30, height: 30 }} />
+                    <Text>Booked</Text>
                 </View>
 
             </View>
 
-            <Layout height={650}/>
+            {renderVehicleLayout()}
 
             <TouchableOpacity
                 style={{
