@@ -2,11 +2,11 @@ import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, Image } from 'r
 import React, { useEffect } from 'react'
 import { COLORS, FONTS, SIZES, icons, images } from '../constants'
 import Svg, { Circle } from 'react-native-svg';
-import Layout14Seater from '../svg/Layout14Seater.svg';
-import Layout33Seater from '../svg/Layout33Seater.svg';
-import Layout49Seater from '../svg/Layout49Seater.svg';
+import { SvgXml } from 'react-native-svg';
+import { Layout14Seater, Layout33Seater, Layout49Seater} from '../svg/LayoutSeater';
 import { selectType } from '../redux/vehicleTypeSlice';
 import { useSelector } from 'react-redux';
+
 
 export const SelectSeatScreen = ({ navigation }) => {
     const vehicleType = useSelector(selectType)
@@ -15,18 +15,27 @@ export const SelectSeatScreen = ({ navigation }) => {
         console.log(vehicleType)
     }, [])
 
+    const handleSeatSelection=()=>{
+        console.log("test")
+    }
+
     const renderVehicleLayout = () => {
+        if (!vehicleType) {
+            return null; // or render a fallback component
+        }
+
         switch (vehicleType) {
             case '14-seater':
-                return <Layout14Seater height={650} />;
+                return <SvgXml xml={Layout14Seater} height={650}  />;
             case '33-seater':
-                return <Layout33Seater height={650} />;
+                return <SvgXml xml={Layout33Seater} height={650} />;
             case '49-seater':
-                return <Layout49Seater height={650} />;
+                return <SvgXml xml={Layout49Seater} height={650} />;
             default:
                 return null;
         }
     };
+
 
 
     return (
@@ -66,7 +75,7 @@ export const SelectSeatScreen = ({ navigation }) => {
             >
                 <Text
                     style={{ textAlign: 'center', color: COLORS.white, ...FONTS.h3 }}
-                >Pay(Seats:)</Text>
+                >Proceed to Pay(Seats:)</Text>
             </TouchableOpacity>
         </SafeAreaView>
     )

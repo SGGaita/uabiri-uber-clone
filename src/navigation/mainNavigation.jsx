@@ -17,7 +17,7 @@ const Drawer = createDrawerNavigator();
 
 
 const CustomDrawerContent = (props) => {
-   // const { name } = useSelector(selectUser)
+   const { name } = useSelector(selectUser)
     const navigation = useNavigation();
 
 
@@ -28,7 +28,7 @@ const CustomDrawerContent = (props) => {
             <View style={{ padding: '15%', marginTop: -5, borderBottomWidth: 0.5, borderBottomColor: COLORS.gray, flexDirection: 'column', backgroundColor: COLORS.primary, justifyContent: 'center', alignItems: 'center' }}>
                 <AvatarChange onPress={ ()=>navigation.navigate(routes.AVATAR_CHANGE_SCREEN)} />
                 <View style={{ paddingTop: 15 }}>
-                    <Text style={{ color: '#fff', fontSize: 20, fontWeight: 300 }}>Steve</Text>
+                    <Text style={{ color: '#fff', fontSize: 20, fontWeight: 300 }}>{name}</Text>
                 </View>
                 <TouchableOpacity
                     onPress={() => navigation.navigate(routes.PROFILE_SCREEN)}
