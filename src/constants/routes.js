@@ -18,6 +18,9 @@ export const routes = {
     PROFILE_SCREEN: 'Profile',
     EWALLET_SCREEN:'My wallet',
     AVATAR_CHANGE_SCREEN:'Avatar Change',
-    SETTINGS_SCREEN:'Settings'
+    SETTINGS_SCREEN:'Settings',
+    ROUTES_SCREEN: 'All Routes',
+    PICKUP_SCREEN: 'Pick up',
+    DROPOFF_SCREEN: 'Drop off'
     
 }

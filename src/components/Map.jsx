@@ -4,6 +4,7 @@ import MapView, { Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDestination, selectOrigin, setTravelTimeInformation } from '../redux/navSlice';
+import { selectPickUp, selectDropOff } from '../redux/routesSlice';
 import { GOOGLE_MAPS_APIKEY } from '@env'
 import { COLORS, images } from '../constants';
 import { darkStyle } from '../data/mapTheme';

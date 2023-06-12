@@ -1,7 +1,19 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import { EWalletScreen, HomeScreen, MapScreen, PaymentScreen, ProfileScreen, RideHistoryScreen,HelpScreen, SelectSeatScreen, SettingScreen } from '../screens';
+import { EWalletScreen, 
+    HomeScreen, 
+    MapScreen, 
+    PaymentScreen, 
+    ProfileScreen, 
+    RideHistoryScreen,
+    HelpScreen, 
+    SelectSeatScreen, 
+    SettingScreen, 
+    RouteScreen, 
+    PickupScreen,
+    DropoffScreen
+} from '../screens';
 import { routes, COLORS, FONTS, images, SIZES, icons } from '../constants/';
 import { selectUser } from '../redux/userSlice';
 import { useSelector } from 'react-redux';
@@ -9,6 +21,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import AvatarChange from '../components/AvatarChange';
 import AvatarEditScreen from '../screens/AvatarEditScreen';
+
 
 
 
@@ -107,11 +120,39 @@ export const MainNavigation = () => {
                             }}
                         />
                         <Stack.Screen
+                        name={routes.ROUTES_SCREEN}
+                        component={RouteScreen}
+                        options={{
+                            headerShown: true,
+                            headerTitleAlign: 'center',
+                        }}
+                        />
+                         <Stack.Screen
+                        name={routes.PICKUP_SCREEN}
+                        component={PickupScreen}
+                        options={{
+                            headerShown: true,
+                            headerTitle:'Select Pickup',
+                            headerTitleAlign: 'center',
+                        }}
+                        />
+                        <Stack.Screen
+                            name={routes.DROPOFF_SCREEN}
+                            component={DropoffScreen}
+                            options={{
+                                headerShown: true,
+                                headerTitle:'Select Drop-off',
+                                headerTitleAlign: 'center',
+                            }}
+                        />
+
+<Stack.Screen
                             name={routes.MAP_SCREEN}
                             component={MapScreen}
                             options={{
-                                headerShown: false,
-                                headerTitleStyle: { fontSize: 12 }
+                                headerTitle: 'Select Seat(s)',
+                                headerTitleAlign: 'center',
+                                headerShown: true,
                             }}
                         />
 

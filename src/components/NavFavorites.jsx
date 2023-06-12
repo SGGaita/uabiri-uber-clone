@@ -4,20 +4,18 @@ import { COLORS, SIZES, icons } from '../constants'
 import { useDispatch, useSelector } from 'react-redux'
 import { setOrigin, setDestination, selectOrigin } from '../redux/navSlice'
 
-const data = [
-    {
-        id: "123",
-        icon: "home",
-        location: "Home",
-        destination: "Ruaka, Kiambu",
-    },
-    {
-        id: "456",
-        icon: "briefcase",
-        location: "Work",
-        destination: "Upperhill, Nairobi",
-    }
-]
+const data = [ {
+    id: "123",
+    icon: "home",
+    location: "Home",
+    destination: "Ruaka, Kiambu",
+},
+{
+    id: "456",
+    icon: "briefcase",
+    location: "Work",
+    destination: "Upperhill, Nairobi",
+}]
 
 export const NavFavorites = () => {
     const dispatch = useDispatch()
@@ -54,10 +52,16 @@ export const NavFavorites = () => {
                             }}
                         />
                     </View>
+                    {data.length > 0 ? (
                     <View>
-                        <Text style={{ color: COLORS.black, fontSize: 20, fontWeight: 700 }}>{location}</Text>
-                        <Text style={{ color: COLORS.darkgray, fontSize: 18 }}>{destination}</Text>
+                        <Text style={{ color: COLORS.black, fontSize: 18, fontWeight: 700 }}>{location}</Text>
+                        <Text style={{ color: COLORS.darkgray, fontSize: 15 }}>{destination}</Text>
                     </View>
+                    ) : (
+                        <View>
+                        <Text style={{ color: COLORS.black, fontSize: 18, fontWeight: 700 }}>Add Home</Text>
+                        </View>
+                      )}
                 </TouchableOpacity>
             )}
         />
